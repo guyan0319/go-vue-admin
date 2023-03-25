@@ -1,1 +1,1 @@
-# go-vue-admin
+# GoFrame Template For SingleRepo
