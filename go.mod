@@ -2,4 +2,8 @@ module github.com/gogf/template-single
 
 go 1.15
 
-require github.com/gogf/gf/v2 v2.0.0-rc.0.20220117131058-9345eb5e946f
+require (
+	github.com/go-redis/redis/v8 v8.11.4 // indirect
+	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/gogf/gf/v2 v2.3.3
+)

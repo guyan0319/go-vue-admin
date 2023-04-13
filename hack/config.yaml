@@ -1,13 +1,4 @@
-server:
-  address:     ":8000"
-  openapiPath: "/api.json"
-  swaggerPath: "/swagger"
-
-logger:
-  level : "all"
-  stdout: true
-
-
+# CLI.
 gfcli:
   gen:
     dao:
@@ -18,3 +9,5 @@ gfcli:
         descriptionTag:  true
         noModelComment:  true
         path: "./internal/app"
+    service:
+      srcFolder: "./internal/app"
