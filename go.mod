@@ -1,9 +1,8 @@
-module github.com/gogf/template-single
+module go-vue-admin
 
 go 1.15
 
 require (
-	github.com/go-redis/redis/v8 v8.11.4 // indirect
-	github.com/go-sql-driver/mysql v1.6.0 // indirect
-	github.com/gogf/gf/v2 v2.3.3
+	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.4.1
+	github.com/gogf/gf/v2 v2.4.1
 )

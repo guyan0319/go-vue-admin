@@ -1,0 +1,5 @@
+2023-05-17 22:39:58.483 [DEBU] {2ce7152036f55f17c88f4c326bb4ba20} [  6 ms] [default] [gvadmindb] [rows:21 ] SHOW FULL COLUMNS FROM `sys_user`
+2023-05-17 22:39:58.500 [DEBU] {2ce7152036f55f17c88f4c326bb4ba20} [ 11 ms] [default] [gvadmindb] [rows:1  ] SELECT COUNT(1) FROM `sys_user` WHERE `user_name`='string'
+2023-05-17 22:41:40.850 [DEBU] {6ce1c0f54df55f176937951fee0cb192} [  4 ms] [default] [gvadmindb] [rows:21 ] SHOW FULL COLUMNS FROM `sys_user`
+2023-05-17 22:41:40.859 [DEBU] {6ce1c0f54df55f176937951fee0cb192} [  1 ms] [default] [gvadmindb] [rows:1  ] SELECT COUNT(1) FROM `sys_user` WHERE `user_name`='string'
+2023-05-17 22:41:52.811 [DEBU] {ac4aecbe50f55f176a37951f0afc5a09} [  1 ms] [default] [gvadmindb] [rows:1  ] SELECT COUNT(1) FROM `sys_user` WHERE `user_name`='nihao '

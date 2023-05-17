@@ -1,5 +1,8 @@
 server:
-  address:     ":8000"
+  address: ":8000"
+  dumpRouterMap: true
+  routeOverWrite: true
+  accessLogEnabled: true
   openapiPath: "/api.json"
   swaggerPath: "/swagger"
 
@@ -7,14 +10,18 @@ logger:
   level : "all"
   stdout: true
 
+# Database.
+database:
+  logger:
+    level:   "all"
+    stdout:  true
+    Path: "resource/log/sql"
 
-gfcli:
-  gen:
-    dao:
-      - link:            "mysql:root:123456@tcp(127.0.0.1:3306)/gvadmindb"
-        tables:          ""
-        tablesEx:        ""
-        removePrefix:    "gf_"
-        descriptionTag:  true
-        noModelComment:  true
-        path: "./internal/app"
+  default:
+    link:   "mysql:root:123456@tcp(127.0.0.1:3306)/gvadmindb?charset=utf8mb4&parseTime=true&loc=Local"
+    debug:  true
+    charset: "utf8mb4" #数据库编码
+    dryRun: false #空跑
+    maxIdle: 10 #连接池最大闲置的连接数
+    maxOpen: 10 #连接池最大打开的连接数
+    maxLifetime: "30s" #(单位秒)连接对象可重复使用的时间长度

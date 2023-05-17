@@ -1,4 +1,6 @@
-# CLI.
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
 gfcli:
   gen:
     dao:
@@ -8,6 +10,7 @@ gfcli:
         removePrefix:    "gf_"
         descriptionTag:  true
         noModelComment:  true
-        path: "./internal/app"
+        path: "./internal/app/system"
     service:
-      srcFolder: "./internal/app"
+      srcFolder: "internal/app/system/logic"
+      dstFolder:  "internal/app/system/service"
