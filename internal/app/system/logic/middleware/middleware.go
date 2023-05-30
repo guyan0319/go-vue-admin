@@ -2,10 +2,9 @@ package middleware
 
 import (
 	"github.com/gogf/gf/v2/net/ghttp"
+	"go-vue-admin/internal/app/system/model"
 	"go-vue-admin/internal/app/system/service"
 	"net/http"
-
-	"go-vue-admin/internal/app/system/model"
 )
 
 type (
@@ -42,6 +41,7 @@ func (s *sMiddleware) Auth(r *ghttp.Request) {
 	if service.User().IsSignedIn(r.Context()) {
 		r.Middleware.Next()
 	} else {
+
 		r.Response.WriteStatus(http.StatusForbidden)
 	}
 }

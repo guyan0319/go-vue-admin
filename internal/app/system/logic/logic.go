@@ -6,6 +6,7 @@ package logic
 
 import (
 	_ "go-vue-admin/internal/app/system/logic/bizctx"
+	_ "go-vue-admin/internal/app/system/logic/captcha"
 	_ "go-vue-admin/internal/app/system/logic/middleware"
 	_ "go-vue-admin/internal/app/system/logic/session"
 	_ "go-vue-admin/internal/app/system/logic/user"
