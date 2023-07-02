@@ -6,8 +6,8 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/net/goai"
 	"github.com/gogf/gf/v2/os/gcmd"
-
 	"go-vue-admin/internal/app/system/consts"
+	"go-vue-admin/internal/app/system/controller/common"
 	"go-vue-admin/internal/app/system/controller/user"
 	"go-vue-admin/internal/app/system/service"
 )
@@ -30,6 +30,7 @@ var (
 				// Register route handlers.
 				group.Bind(
 					user.New(),
+					common.Captcha,
 				)
 				// Special handler that needs authentication.
 				group.Group("/", func(group *ghttp.RouterGroup) {
