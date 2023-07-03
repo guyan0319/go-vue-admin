@@ -9,4 +9,6 @@ type CaptchaRes struct {
 	g.Meta `mime:"application/json"`
 	Key    string `json:"key"`
 	Img    string `json:"img"`
+	Uuid    string `json:"uuid"`
+	CaptchaEnabled    bool `json:"captchaEnabled"`
 }
