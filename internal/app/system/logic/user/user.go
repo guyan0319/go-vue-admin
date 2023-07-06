@@ -27,20 +27,20 @@ func New() service.IUser {
 
 // Create creates user account.
 func (s *sUser) Create(ctx context.Context, in model.UserCreateInput) (err error) {
-	// If Nickname is not specified, it then uses Passport as its default Nickname.
+	// If Nickname is not specified, it then uses UserName as its default Nickname.
 	if in.Nickname == "" {
-		in.Nickname = in.Passport
+		in.Nickname = in.UserName
 	}
 	var (
 		available bool
 	)
-	// Passport checks.
-	available, err = s.IsPassportAvailable(ctx, in.Passport)
+	// UserName checks.
+	available, err = s.IsUserNameAvailable(ctx, in.UserName)
 	if err != nil {
 		return err
 	}
 	if !available {
-		return gerror.Newf(`Passport "%s" is already token by others`, in.Passport)
+		return gerror.Newf(`UserName "%s" is already token by others`, in.UserName)
 	}
 	// Nickname checks.
 	available, err = s.IsNicknameAvailable(ctx, in.Nickname)
@@ -52,7 +52,7 @@ func (s *sUser) Create(ctx context.Context, in model.UserCreateInput) (err error
 	}
 	return dao.SysUser.Transaction(ctx, func(ctx context.Context, tx gdb.TX) error {
 		_, err = dao.SysUser.Ctx(ctx).Data(do.SysUser{
-			//Passport: in.Passport,
+			//UserName: in.UserName,
 			Password: in.Password,
 			//Nickname: in.Nickname,
 		}).Insert()
@@ -68,39 +68,39 @@ func (s *sUser) IsSignedIn(ctx context.Context) bool {
 	return false
 }
 
-// SignIn creates session for given user account.
-func (s *sUser) SignIn(ctx context.Context, in model.UserSignInInput) (err error) {
+// Login creates session for given user account.
+func (s *sUser) Login(ctx context.Context, in model.UserSignInInput) (err error) {
 	var user *entity.SysUser
 	err = dao.SysUser.Ctx(ctx).Where(do.SysUser{
-		//Passport: in.Passport,
-		Password: in.Password,
+		UserName: in.UserName,
+		//Password: in.Password,
 	}).Scan(&user)
 	if err != nil {
 		return err
 	}
 	if user == nil {
-		return gerror.New(`Passport or Password not correct`)
+		return gerror.New(`UserName or Password not correct`)
 	}
 	if err = service.Session().SetUser(ctx, user); err != nil {
 		return err
 	}
 	service.BizCtx().SetUser(ctx, &model.ContextUser{
 		Id: user.UserId,
-		//Passport: user.Passport,
+		UserName: user.UserName,
 		Nickname: user.UserName,
 	})
 	return nil
 }
 
-// SignOut removes the session for current signed-in user.
-func (s *sUser) SignOut(ctx context.Context) error {
+// LogOut removes the session for current signed-in user.
+func (s *sUser) LogOut(ctx context.Context) error {
 	return service.Session().RemoveUser(ctx)
 }
 
-// IsPassportAvailable checks and returns given passport is available for signing up.
-func (s *sUser) IsPassportAvailable(ctx context.Context, passport string) (bool, error) {
+// IsUserNameAvailable checks and returns given UserName is available for signing up.
+func (s *sUser) IsUserNameAvailable(ctx context.Context, UserName string) (bool, error) {
 	count, err := dao.SysUser.Ctx(ctx).Where(do.SysUser{
-		//Passport: passport,
+		//UserName: UserName,
 	}).Count()
 	if err != nil {
 		return false, err

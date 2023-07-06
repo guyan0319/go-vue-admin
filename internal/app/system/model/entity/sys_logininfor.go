@@ -11,7 +11,7 @@ import (
 // SysLogininfor is the golang structure for table sys_logininfor.
 type SysLogininfor struct {
 	InfoId        int64       `json:"infoId"        description:"访问ID"`
-	LoginName     string      `json:"loginName"     description:"登录账号"`
+	UserName      string      `json:"userName"      description:"用户账号"`
 	Ipaddr        string      `json:"ipaddr"        description:"登录IP地址"`
 	LoginLocation string      `json:"loginLocation" description:"登录地点"`
 	Browser       string      `json:"browser"       description:"浏览器类型"`

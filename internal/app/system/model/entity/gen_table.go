@@ -16,7 +16,7 @@ type GenTable struct {
 	SubTableName   string      `json:"subTableName"   description:"关联子表的表名"`
 	SubTableFkName string      `json:"subTableFkName" description:"子表关联的外键名"`
 	ClassName      string      `json:"className"      description:"实体类名称"`
-	TplCategory    string      `json:"tplCategory"    description:"使用的模板（crud单表操作 tree树表操作 sub主子表操作）"`
+	TplCategory    string      `json:"tplCategory"    description:"使用的模板（crud单表操作 tree树表操作）"`
 	PackageName    string      `json:"packageName"    description:"生成包路径"`
 	ModuleName     string      `json:"moduleName"     description:"生成模块名"`
 	BusinessName   string      `json:"businessName"   description:"生成业务名"`

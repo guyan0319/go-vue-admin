@@ -26,7 +26,7 @@ type GenTableColumns struct {
 	SubTableName   string // 关联子表的表名
 	SubTableFkName string // 子表关联的外键名
 	ClassName      string // 实体类名称
-	TplCategory    string // 使用的模板（crud单表操作 tree树表操作 sub主子表操作）
+	TplCategory    string // 使用的模板（crud单表操作 tree树表操作）
 	PackageName    string // 生成包路径
 	ModuleName     string // 生成模块名
 	BusinessName   string // 生成业务名

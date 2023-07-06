@@ -15,7 +15,7 @@ type SysNotice struct {
 	NoticeId      interface{} // 公告ID
 	NoticeTitle   interface{} // 公告标题
 	NoticeType    interface{} // 公告类型（1通知 2公告）
-	NoticeContent interface{} // 公告内容
+	NoticeContent []byte      // 公告内容
 	Status        interface{} // 公告状态（0正常 1关闭）
 	CreateBy      interface{} // 创建者
 	CreateTime    *gtime.Time // 创建时间

@@ -21,7 +21,7 @@ type SysLogininforDao struct {
 // SysLogininforColumns defines and stores column names for table sys_logininfor.
 type SysLogininforColumns struct {
 	InfoId        string // 访问ID
-	LoginName     string // 登录账号
+	UserName      string // 用户账号
 	Ipaddr        string // 登录IP地址
 	LoginLocation string // 登录地点
 	Browser       string // 浏览器类型
@@ -34,7 +34,7 @@ type SysLogininforColumns struct {
 // sysLogininforColumns holds the columns for table sys_logininfor.
 var sysLogininforColumns = SysLogininforColumns{
 	InfoId:        "info_id",
-	LoginName:     "login_name",
+	UserName:      "user_name",
 	Ipaddr:        "ipaddr",
 	LoginLocation: "login_location",
 	Browser:       "browser",

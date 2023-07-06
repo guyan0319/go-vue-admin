@@ -1,11 +1,12 @@
 import request from '@/utils/request'
 
 // 登录方法
-export function login(username, password, code, uuid) {
+export function login(userName, password, code,verifyKey, uuid) {
   const data = {
-    username,
+    userName,
     password,
     code,
+    verifyKey,
     uuid
   }
   return request({
@@ -33,7 +34,7 @@ export function register(data) {
 // 获取用户详细信息
 export function getInfo() {
   return request({
-    url: '/getInfo',
+    url: 'getInfo',
     method: 'get'
   })
 }

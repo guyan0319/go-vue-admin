@@ -35,7 +35,7 @@ func (s *sMiddleware) Ctx(r *ghttp.Request) {
 	if user := service.Session().GetUser(r.Context()); user != nil {
 		customCtx.User = &model.ContextUser{
 			Id: user.UserId,
-			//Passport: user.Passport,
+			//UserName: user.UserName,
 			Nickname: user.UserName,
 		}
 	}

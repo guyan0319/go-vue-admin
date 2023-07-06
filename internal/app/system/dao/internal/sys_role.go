@@ -20,34 +20,38 @@ type SysRoleDao struct {
 
 // SysRoleColumns defines and stores column names for table sys_role.
 type SysRoleColumns struct {
-	RoleId     string // 角色ID
-	RoleName   string // 角色名称
-	RoleKey    string // 角色权限字符串
-	RoleSort   string // 显示顺序
-	DataScope  string // 数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）
-	Status     string // 角色状态（0正常 1停用）
-	DelFlag    string // 删除标志（0代表存在 2代表删除）
-	CreateBy   string // 创建者
-	CreateTime string // 创建时间
-	UpdateBy   string // 更新者
-	UpdateTime string // 更新时间
-	Remark     string // 备注
+	RoleId            string // 角色ID
+	RoleName          string // 角色名称
+	RoleKey           string // 角色权限字符串
+	RoleSort          string // 显示顺序
+	DataScope         string // 数据范围（1：全部数据权限 2：自定数据权限 3：本部门数据权限 4：本部门及以下数据权限）
+	MenuCheckStrictly string // 菜单树选择项是否关联显示
+	DeptCheckStrictly string // 部门树选择项是否关联显示
+	Status            string // 角色状态（0正常 1停用）
+	DelFlag           string // 删除标志（0代表存在 2代表删除）
+	CreateBy          string // 创建者
+	CreateTime        string // 创建时间
+	UpdateBy          string // 更新者
+	UpdateTime        string // 更新时间
+	Remark            string // 备注
 }
 
 // sysRoleColumns holds the columns for table sys_role.
 var sysRoleColumns = SysRoleColumns{
-	RoleId:     "role_id",
-	RoleName:   "role_name",
-	RoleKey:    "role_key",
-	RoleSort:   "role_sort",
-	DataScope:  "data_scope",
-	Status:     "status",
-	DelFlag:    "del_flag",
-	CreateBy:   "create_by",
-	CreateTime: "create_time",
-	UpdateBy:   "update_by",
-	UpdateTime: "update_time",
-	Remark:     "remark",
+	RoleId:            "role_id",
+	RoleName:          "role_name",
+	RoleKey:           "role_key",
+	RoleSort:          "role_sort",
+	DataScope:         "data_scope",
+	MenuCheckStrictly: "menu_check_strictly",
+	DeptCheckStrictly: "dept_check_strictly",
+	Status:            "status",
+	DelFlag:           "del_flag",
+	CreateBy:          "create_by",
+	CreateTime:        "create_time",
+	UpdateBy:          "update_by",
+	UpdateTime:        "update_time",
+	Remark:            "remark",
 }
 
 // NewSysRoleDao creates and returns a new DAO object for table data access.

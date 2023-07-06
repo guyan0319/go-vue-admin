@@ -13,7 +13,7 @@ import (
 type SysLogininfor struct {
 	g.Meta        `orm:"table:sys_logininfor, do:true"`
 	InfoId        interface{} // 访问ID
-	LoginName     interface{} // 登录账号
+	UserName      interface{} // 用户账号
 	Ipaddr        interface{} // 登录IP地址
 	LoginLocation interface{} // 登录地点
 	Browser       interface{} // 浏览器类型

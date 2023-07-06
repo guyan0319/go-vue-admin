@@ -24,11 +24,14 @@ type SysMenuColumns struct {
 	MenuName   string // 菜单名称
 	ParentId   string // 父菜单ID
 	OrderNum   string // 显示顺序
-	Url        string // 请求地址
-	Target     string // 打开方式（menuItem页签 menuBlank新窗口）
+	Path       string // 路由地址
+	Component  string // 组件路径
+	Query      string // 路由参数
+	IsFrame    string // 是否为外链（0是 1否）
+	IsCache    string // 是否缓存（0缓存 1不缓存）
 	MenuType   string // 菜单类型（M目录 C菜单 F按钮）
 	Visible    string // 菜单状态（0显示 1隐藏）
-	IsRefresh  string // 是否刷新（0刷新 1不刷新）
+	Status     string // 菜单状态（0正常 1停用）
 	Perms      string // 权限标识
 	Icon       string // 菜单图标
 	CreateBy   string // 创建者
@@ -44,11 +47,14 @@ var sysMenuColumns = SysMenuColumns{
 	MenuName:   "menu_name",
 	ParentId:   "parent_id",
 	OrderNum:   "order_num",
-	Url:        "url",
-	Target:     "target",
+	Path:       "path",
+	Component:  "component",
+	Query:      "query",
+	IsFrame:    "is_frame",
+	IsCache:    "is_cache",
 	MenuType:   "menu_type",
 	Visible:    "visible",
-	IsRefresh:  "is_refresh",
+	Status:     "status",
 	Perms:      "perms",
 	Icon:       "icon",
 	CreateBy:   "create_by",

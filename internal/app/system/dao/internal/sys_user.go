@@ -20,52 +20,48 @@ type SysUserDao struct {
 
 // SysUserColumns defines and stores column names for table sys_user.
 type SysUserColumns struct {
-	UserId        string // 用户ID
-	DeptId        string // 部门ID
-	LoginName     string // 登录账号
-	UserName      string // 用户昵称
-	UserType      string // 用户类型（00系统用户 01注册用户）
-	Email         string // 用户邮箱
-	Phonenumber   string // 手机号码
-	Sex           string // 用户性别（0男 1女 2未知）
-	Avatar        string // 头像路径
-	Password      string // 密码
-	Salt          string // 盐加密
-	Status        string // 帐号状态（0正常 1停用）
-	DelFlag       string // 删除标志（0代表存在 2代表删除）
-	LoginIp       string // 最后登录IP
-	LoginDate     string // 最后登录时间
-	PwdUpdateDate string // 密码最后更新时间
-	CreateBy      string // 创建者
-	CreateTime    string // 创建时间
-	UpdateBy      string // 更新者
-	UpdateTime    string // 更新时间
-	Remark        string // 备注
+	UserId      string // 用户ID
+	DeptId      string // 部门ID
+	UserName    string // 用户账号
+	NickName    string // 用户昵称
+	UserType    string // 用户类型（00系统用户）
+	Email       string // 用户邮箱
+	Phonenumber string // 手机号码
+	Sex         string // 用户性别（0男 1女 2未知）
+	Avatar      string // 头像地址
+	Password    string // 密码
+	Status      string // 帐号状态（0正常 1停用）
+	DelFlag     string // 删除标志（0代表存在 2代表删除）
+	LoginIp     string // 最后登录IP
+	LoginDate   string // 最后登录时间
+	CreateBy    string // 创建者
+	CreateTime  string // 创建时间
+	UpdateBy    string // 更新者
+	UpdateTime  string // 更新时间
+	Remark      string // 备注
 }
 
 // sysUserColumns holds the columns for table sys_user.
 var sysUserColumns = SysUserColumns{
-	UserId:        "user_id",
-	DeptId:        "dept_id",
-	LoginName:     "login_name",
-	UserName:      "user_name",
-	UserType:      "user_type",
-	Email:         "email",
-	Phonenumber:   "phonenumber",
-	Sex:           "sex",
-	Avatar:        "avatar",
-	Password:      "password",
-	Salt:          "salt",
-	Status:        "status",
-	DelFlag:       "del_flag",
-	LoginIp:       "login_ip",
-	LoginDate:     "login_date",
-	PwdUpdateDate: "pwd_update_date",
-	CreateBy:      "create_by",
-	CreateTime:    "create_time",
-	UpdateBy:      "update_by",
-	UpdateTime:    "update_time",
-	Remark:        "remark",
+	UserId:      "user_id",
+	DeptId:      "dept_id",
+	UserName:    "user_name",
+	NickName:    "nick_name",
+	UserType:    "user_type",
+	Email:       "email",
+	Phonenumber: "phonenumber",
+	Sex:         "sex",
+	Avatar:      "avatar",
+	Password:    "password",
+	Status:      "status",
+	DelFlag:     "del_flag",
+	LoginIp:     "login_ip",
+	LoginDate:   "login_date",
+	CreateBy:    "create_by",
+	CreateTime:  "create_time",
+	UpdateBy:    "update_by",
+	UpdateTime:  "update_time",
+	Remark:      "remark",
 }
 
 // NewSysUserDao creates and returns a new DAO object for table data access.

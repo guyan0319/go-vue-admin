@@ -18,7 +18,7 @@ type GenTable struct {
 	SubTableName   interface{} // 关联子表的表名
 	SubTableFkName interface{} // 子表关联的外键名
 	ClassName      interface{} // 实体类名称
-	TplCategory    interface{} // 使用的模板（crud单表操作 tree树表操作 sub主子表操作）
+	TplCategory    interface{} // 使用的模板（crud单表操作 tree树表操作）
 	PackageName    interface{} // 生成包路径
 	ModuleName     interface{} // 生成模块名
 	BusinessName   interface{} // 生成业务名

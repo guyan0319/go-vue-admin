@@ -16,11 +16,14 @@ type SysMenu struct {
 	MenuName   interface{} // 菜单名称
 	ParentId   interface{} // 父菜单ID
 	OrderNum   interface{} // 显示顺序
-	Url        interface{} // 请求地址
-	Target     interface{} // 打开方式（menuItem页签 menuBlank新窗口）
+	Path       interface{} // 路由地址
+	Component  interface{} // 组件路径
+	Query      interface{} // 路由参数
+	IsFrame    interface{} // 是否为外链（0是 1否）
+	IsCache    interface{} // 是否缓存（0缓存 1不缓存）
 	MenuType   interface{} // 菜单类型（M目录 C菜单 F按钮）
 	Visible    interface{} // 菜单状态（0显示 1隐藏）
-	IsRefresh  interface{} // 是否刷新（0刷新 1不刷新）
+	Status     interface{} // 菜单状态（0正常 1停用）
 	Perms      interface{} // 权限标识
 	Icon       interface{} // 菜单图标
 	CreateBy   interface{} // 创建者

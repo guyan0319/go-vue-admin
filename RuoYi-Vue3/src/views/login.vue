@@ -79,6 +79,7 @@ const loginForm = ref({
   password: "admin123",
   rememberMe: false,
   code: "",
+  verifyKey: "",
   uuid: ""
 });
 
@@ -112,6 +113,7 @@ function handleLogin() {
         Cookies.remove("rememberMe");
       }
       // 调用action的登录方法
+      console.log(loginForm.value)
       userStore.login(loginForm.value).then(() => {
         router.push({ path: redirect.value || "/" });
       }).catch(() => {
@@ -129,13 +131,14 @@ function getCode() {
   getCodeImg().then(res => {
     if (res.data!=undefined)
     {
-      console.log(res.data)
+
       captchaEnabled.value = res.data.captchaEnabled === undefined ? true : res.data.captchaEnabled;
       if (captchaEnabled.value) {
         //修改验证码
         codeUrl.value = res.data.img;
         // codeUrl.value = "data:image/gif;base64," + res.data.img;
         loginForm.value.uuid = res.data.uuid;
+        loginForm.value.verifyKey = res.data.key;
       }
     }
 

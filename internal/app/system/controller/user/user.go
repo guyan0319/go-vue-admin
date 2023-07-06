@@ -2,6 +2,8 @@ package user
 
 import (
 	"context"
+	"fmt"
+	"github.com/gogf/gf/v2/util/gmode"
 	v1 "go-vue-admin/api/v1"
 	"go-vue-admin/internal/app/system/model"
 	"go-vue-admin/internal/app/system/service"
@@ -18,17 +20,27 @@ func New() *Controller {
 // SignUp is the API for user sign up.
 func (c *Controller) SignUp(ctx context.Context, req *v1.SignUpReq) (res *v1.SignUpRes, err error) {
 	err = service.User().Create(ctx, model.UserCreateInput{
-		Passport: req.Passport,
+		UserName: req.UserName,
 		Password: req.Password,
 		Nickname: req.Nickname,
 	})
 	return
 }
 
-// SignIn is the API for user sign in.
-func (c *Controller) SignIn(ctx context.Context, req *v1.SignInReq) (res *v1.SignInRes, err error) {
-	err = service.User().SignIn(ctx, model.UserSignInInput{
-		Passport: req.Passport,
+// Login is the API for user sign in.
+func (c *Controller) Login(ctx context.Context, req *v1.SignInReq) (res *v1.SignInRes, err error) {
+	//判断验证码是否正确
+	debug := gmode.IsDevelop()
+	fmt.Println(req)
+	if !debug {
+		if !service.Captcha().VerifyString(req.VerifyKey, req.Code) {
+			err = gerror.New("验证码输入错误")
+			return
+		}
+	}
+
+	err = service.User().Login(ctx, model.UserSignInInput{
+		UserName: req.UserName,
 		Password: req.Password,
 	})
 	return
@@ -42,20 +54,20 @@ func (c *Controller) IsSignedIn(ctx context.Context, req *v1.IsSignedInReq) (res
 	return
 }
 
-// SignOut is the API for user sign out.
-func (c *Controller) SignOut(ctx context.Context, req *v1.SignOutReq) (res *v1.SignOutRes, err error) {
-	err = service.User().SignOut(ctx)
+// LogOut is the API for user sign out.
+func (c *Controller) LogOut(ctx context.Context, req *v1.LogOutReq) (res *v1.LogOutRes, err error) {
+	err = service.User().LogOut(ctx)
 	return
 }
 
-// CheckPassport checks and returns whether the user passport is available.
-func (c *Controller) CheckPassport(ctx context.Context, req *v1.CheckPassportReq) (res *v1.CheckPassportRes, err error) {
-	available, err := service.User().IsPassportAvailable(ctx, req.Passport)
+// CheckUserName checks and returns whether the user UserName is available.
+func (c *Controller) CheckUserName(ctx context.Context, req *v1.CheckUserNameReq) (res *v1.CheckUserNameRes, err error) {
+	available, err := service.User().IsUserNameAvailable(ctx, req.UserName)
 	if err != nil {
 		return nil, err
 	}
 	if !available {
-		return nil, gerror.Newf(`Passport "%s" is already token by others`, req.Passport)
+		return nil, gerror.Newf(`UserName "%s" is already token by others`, req.UserName)
 	}
 	return
 }

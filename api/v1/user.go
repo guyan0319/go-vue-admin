@@ -14,25 +14,27 @@ type ProfileRes struct {
 
 type SignUpReq struct {
 	g.Meta    `path:"/user/sign-up" method:"post" tags:"UserService" summary:"Sign up a new user account"`
-	Passport  string `v:"required|length:6,16"`
-	Password  string `v:"required|length:6,16"`
+	UserName  string `p:"userName" v:"required|length:6,16"`
+	Password  string `p:"password" v:"required|length:6,16"`
 	Password2 string `v:"required|length:6,16|same:Password"`
 	Nickname  string
 }
 type SignUpRes struct{}
 
 type SignInReq struct {
-	g.Meta   `path:"/user/sign-in" method:"post" tags:"UserService" summary:"Sign in with exist account"`
-	Passport string `v:"required"`
-	Password string `v:"required"`
+	g.Meta   `path:"/login" method:"post" tags:"UserService" summary:"Sign in with exist account"`
+	UserName string `p:"userName" v:"required"`
+	Password string `p:"password" v:"required"`
+	Code string `p:"code" v:"required#验证码不能为空"`
+	VerifyKey  string `p:"verifyKey"`
 }
 type SignInRes struct{}
 
-type CheckPassportReq struct {
-	g.Meta   `path:"/user/check-passport" method:"post" tags:"UserService" summary:"Check passport available"`
-	Passport string `v:"required"`
+type CheckUserNameReq struct {
+	g.Meta   `path:"/user/check-UserName" method:"post" tags:"UserService" summary:"Check UserName available"`
+	UserName string `v:"required"`
 }
-type CheckPassportRes struct{}
+type CheckUserNameRes struct{}
 
 type CheckNickNameReq struct {
 	g.Meta   `path:"/user/check-nick-name" method:"post" tags:"UserService" summary:"Check nickname available"`
@@ -47,7 +49,7 @@ type IsSignedInRes struct {
 	OK bool `dc:"True if current user is signed in; or else false"`
 }
 
-type SignOutReq struct {
-	g.Meta `path:"/user/sign-out" method:"post" tags:"UserService" summary:"Sign out current user"`
+type LogOutReq struct {
+	g.Meta `path:"/logout" method:"post" tags:"UserService" summary:"Sign out current user"`
 }
-type SignOutRes struct{}
+type LogOutRes struct{}
