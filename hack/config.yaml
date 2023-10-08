@@ -1,0 +1,16 @@
+
+# CLI tool, only in development environment.
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+      - link:            "mysql:root:123456@tcp(127.0.0.1:3306)/gvadmindb"
+        tables:          ""
+        tablesEx:        ""
+        removePrefix:    "gf_"
+        descriptionTag:  true
+        noModelComment:  true
+        path: "./internal/app/system"
+    service:
+      srcFolder: "internal/app/system/logic"
+      dstFolder:  "internal/app/system/service"
