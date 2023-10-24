@@ -149,6 +149,6 @@ http://localhost/login?redirect=/index
 
 ## 注意
 
-开发者模式下，不验证验证码，可随意字符。
+开发者模式下，登录不验证验证码，可随意字符。
 
 如生产环境去掉//gmode.SetProduct()前面注释
